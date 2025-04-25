@@ -23,7 +23,7 @@ return {
     },
     git = {
       enable = true,
-      ignore = true, -- Changed from 'true' in old config, assuming typo and you meant 'false' to show git status? Set to true if you want to ignore git status in tree.
+      ignore = false, -- Set to false to show git status in tree
     },
     filesystem_watchers = {
       enable = true,
@@ -72,5 +72,20 @@ return {
         },
       },
     },
+    -- Add on_attach for custom keybindings
+    on_attach = function(bufnr)
+      local api = require("nvim-tree.api")
+
+      -- Default mappings
+      api.config.mappings.default_on_attach(bufnr)
+
+      -- Custom keybinding to toggle git changes filter
+      vim.keymap.set(
+        "n",
+        "<leader>gc",
+        api.tree.toggle_git_clean_filter,
+        { buffer = bufnr, desc = "Toggle files with Git changes" }
+      )
+    end,
   },
-} 
+}

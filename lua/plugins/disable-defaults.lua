@@ -12,5 +12,6 @@ return {
   { "echasnovski/mini.notify", enabled = false },
 
   -- Disable flash.nvim (formerly known as snacks.nvim)
-  --{ "folke/flash.nvim", enabled = false },
-} 
+  { "akinsho/bufferline.nvim", enabled = false },
+}
+

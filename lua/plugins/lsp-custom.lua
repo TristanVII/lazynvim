@@ -50,7 +50,7 @@ return {
       -- Keep the on_attach function (wrapped)
       opts.on_attach = require("lazyvim.util").lsp.on_attach(function(client, bufnr)
         -- This function runs AFTER LazyVim's default on_attach keymaps are set.
-        
+
         -- Define your custom mappings here. They will override defaults if they conflict.
 
         local map = function(mode, keys, func, desc)
@@ -83,7 +83,7 @@ return {
           })
         end
       end)
-      
+
       -- Return the modified opts table
       return opts
     end,

@@ -24,7 +24,7 @@ return {
       -- Merge servers config (ensure ruby_lsp is enabled)
       opts.servers = vim.tbl_deep_extend("force", opts.servers or {}, {
         lua_ls = {}, -- Keep default
-        ruby_lsp = {}, -- Ensure this is enabled
+        solargraph = {},
       })
 
       -- Merge diagnostics config (keeping previous settings)
@@ -68,20 +68,6 @@ return {
         map("n", "<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
         map("n", "gh", vim.lsp.buf.hover, "Hover Documentation")
         map("n", "gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-
-        -- Document Highlight Autocommands (ensure client capabilities are checked)
-        if client and client.server_capabilities and client.server_capabilities.documentHighlightProvider then
-          vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-            buffer = bufnr,
-            callback = vim.lsp.buf.document_highlight,
-            desc = "LSP Document Highlight",
-          })
-          vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-            buffer = bufnr,
-            callback = vim.lsp.buf.clear_references,
-            desc = "LSP Clear References",
-          })
-        end
       end)
 
       -- Return the modified opts table

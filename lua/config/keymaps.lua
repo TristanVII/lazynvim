@@ -55,7 +55,7 @@ map('n', '<leader>fr', ':SearchBoxReplace<CR>', { desc = 'Replace with SearchBox
 map('n', '<S-t>', '<cmd>:ToggleTerm size=10 direction=float name=main<cr>', { desc = 'Toggle floating terminal' })
 
 -- Copy current file path
-map('n', '<leader>cc', function()
+map('n', '<leader>cf', function()
   local filepath = vim.fn.expand('%:p')
   vim.fn.setreg('+', filepath)
   vim.notify("Copied path: " .. filepath, vim.log.levels.INFO)

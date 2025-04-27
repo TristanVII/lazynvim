@@ -54,6 +54,31 @@ map('n', '<leader>fr', ':SearchBoxReplace<CR>', { desc = 'Replace with SearchBox
 -- ToggleTerm Float
 map('n', '<S-t>', '<cmd>:ToggleTerm size=10 direction=float name=main<cr>', { desc = 'Toggle floating terminal' })
 
+-- GIT SCRIPT TO SHOW LOG AT LINES
+map("v", "<leader>gl", function()
+    vim.print('G log --pretty="tformat: %n%Cred%h%Creset %Cgreen%s%Creset" -L')
+    vim.cmd(
+        'G log --pretty="tformat: %n%Cred%h%Creset %Cgreen%s%Creset" -L'
+            .. vim.fn.line("v")
+            .. ","
+            .. vim.fn.line(".")
+            .. ":"
+            .. vim.fn.expand("%:p")
+    )
+end, {})
+ 
+vim.keymap.set("n", "<leader>gl", function()
+    vim.print('G log --pretty="tformat: %n%Cred%h%Creset %Cgreen%s%Creset" -L')
+    vim.cmd(
+        'G log --pretty="tformat: %n%Cred%h%Creset %Cgreen%s%Creset" -L'
+            .. math.max(1, vim.fn.line(".") - 1)
+            .. ","
+            .. vim.fn.line(".") + 1
+            .. ":"
+            .. vim.fn.expand("%:p")
+    )
+end, {})
+
 -- Copy current file path
 map('n', '<leader>cf', function()
   local filepath = vim.fn.expand('%:p')

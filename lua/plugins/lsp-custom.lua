@@ -24,7 +24,11 @@ return {
       -- Merge servers config (ensure ruby_lsp is enabled)
       opts.servers = vim.tbl_deep_extend("force", opts.servers or {}, {
         lua_ls = {}, -- Keep default
-        solargraph = {},
+        solargraph = {
+          root_dir = require("lspconfig").util.root_pattern("Gemfile", ".git", "."),
+        },
+        -- You might want to keep ruby_lsp explicit here too, or remove it if solargraph is preferred
+        -- ruby_lsp = {},
       })
 
       -- Merge diagnostics config (keeping previous settings)

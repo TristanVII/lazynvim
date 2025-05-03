@@ -3,14 +3,14 @@
 -- Add any additional options here
 
 -- Set leader keys
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Enable nerd font
 vim.g.have_nerd_font = true
 
 -- Set clipboard
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = "unnamedplus"
 
 -- Line numbers
 vim.opt.number = true
@@ -22,18 +22,17 @@ vim.opt.wrap = false
 -- Backup/Swap/Undo
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
 -- Mouse mode
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- UI settings
 vim.opt.showmode = false
 vim.opt.termguicolors = true
-vim.opt.signcolumn = 'yes' -- Keep signcolumn on by default
+vim.opt.signcolumn = "yes" -- Keep signcolumn on by default
 vim.opt.cursorline = true
-vim.opt.guicursor = '' -- Use system cursor shape
 
 -- Indentation
 vim.opt.breakindent = true
@@ -53,10 +52,10 @@ vim.opt.splitbelow = true
 
 -- Whitespace characters
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Live substitution preview
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = "split"
 
 -- Scrolling offset
 vim.opt.scrolloff = 10

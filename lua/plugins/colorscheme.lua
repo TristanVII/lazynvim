@@ -61,7 +61,6 @@ return {
       },
 
       highlight_groups = {
-        CursorLine = { bg = "#282c34" }, -- For cursor line
         Cursor = { bg = "#282c34" }, -- For cursor background
         -- Ensure Normal background matches the desired base
         Normal = { bg = "#282c34" },
@@ -91,4 +90,3 @@ return {
     vim.cmd("colorscheme rose-pine")
   end,
 }
-

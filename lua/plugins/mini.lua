@@ -12,24 +12,22 @@ return {
     -- Their setup usually happens automatically if mini.nvim is loaded.
     -- Explicitly call setup if you need to guarantee options.
     require("mini.ai").setup(opts.ai or { n_lines = 500 }) -- Merge LazyVim opts with your n_lines
-    require("mini.surround").setup(opts.surround or {}) -- Use LazyVim opts or defaults
-
     -- Configure mini.statusline (your addition)
     -- Check if mini.statusline is enabled in the main LazyVim config or enable it here
     -- This assumes LazyVim doesn't configure statusline by default (it uses lualine)
     local statusline_ok, statusline = pcall(require, "mini.statusline")
     if statusline_ok then
-      statusline.setup {
+      statusline.setup({
         use_icons = vim.g.have_nerd_font or false,
         -- Set the section for cursor location as per your old config
         section_location = function()
           return "%2l:%-2v"
         end,
         -- Add other statusline options if desired
-      }
+      })
       print("mini.statusline configured.")
     else
-       print("mini.statusline not found or failed to load. Ensure it's required by your main lazy setup if needed.")
+      print("mini.statusline not found or failed to load. Ensure it's required by your main lazy setup if needed.")
     end
 
     -- Setup other mini modules if needed by LazyVim or explicitly by you
@@ -39,4 +37,4 @@ return {
     -- IMPORTANT: This config assumes mini.nvim is loaded by LazyVim.
     -- If you added mini.nvim explicitly, ensure it doesn't conflict with LazyVim's defaults.
   end,
-} 
+}

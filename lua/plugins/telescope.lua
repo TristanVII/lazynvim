@@ -13,6 +13,10 @@ return {
     },
     "nvim-telescope/telescope-ui-select.nvim",
     "nvim-tree/nvim-web-devicons",
+  {
+          "nvim-telescope/telescope-live-grep-args.nvim" ,
+        version = "^1.0.0",
+    },
   },
   opts = function()
     -- local actions = require "telescope.actions"
@@ -89,5 +93,6 @@ return {
     telescope.setup(opts)
     pcall(telescope.load_extension, "fzf")
     pcall(telescope.load_extension, "ui-select")
+    pcall(telescope.load_extension, "live_grep_args")
   end,
 } 

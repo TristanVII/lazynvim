@@ -24,3 +24,9 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 -- Add any other custom autocommands below this line
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "js", "c" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})

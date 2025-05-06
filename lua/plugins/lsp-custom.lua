@@ -6,7 +6,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
       -- Add tools needed: stylua (from old config), ruby-lsp, rubocop
-      vim.list_extend(opts.ensure_installed, { "stylua", "ruby-lsp", "rubocop" })
+      vim.list_extend(opts.ensure_installed, { })
     end,
   },
 
